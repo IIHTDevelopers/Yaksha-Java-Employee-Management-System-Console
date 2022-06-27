@@ -1,0 +1,5 @@
+
+testEmployeeSortByName=true
+testUpdateEmployeeById=true
+testViewEmployeeById=true
+testViewAllEmployees=true
