@@ -37,28 +37,43 @@ class EmployeeUnitTest {
 
 	@Test
 	public void testViewAllEmployees() throws IOException {
-
-		yakshaAssert(currentTest(), list.size() == 10 ? true : false, businessTestFile);
+		try{
+			yakshaAssert(currentTest(), list.size() == 10 ? true : false, businessTestFile);
+		}catch(Exception ex){
+			yakshaAssert(currentTest(), false, businessTestFile);
+		}
 	}
 
 	@Test
 	public void testUpdateEmployeeById() throws IOException {
 		Employee employee = MasterData.getEmployeeData();
 		Employee emp = employeeService.updateEmployeeById(employee.getId(), 99999);
-		yakshaAssert(currentTest(), employee.getSalary() != emp.getSalary() ? true : false, businessTestFile);
+		try{
+			yakshaAssert(currentTest(), employee.getSalary() != emp.getSalary() ? true : false, businessTestFile);
+		}catch(Exception ex){
+			yakshaAssert(currentTest(), false, businessTestFile);
+		}
 	}
 
 	@Test
 	public void testEmployeeSortByName() throws IOException {
 		List<Employee> sortedEmployee = employeeService.sortEmployeesByName();
-		yakshaAssert(currentTest(), sortedEmployee.get(0).getName().equalsIgnoreCase("Bob") ? true : false,
+		try{
+			yakshaAssert(currentTest(), sortedEmployee.get(0).getName().equalsIgnoreCase("Bob") ? true : false,
 				businessTestFile);
+		}catch(Exception ex){
+			yakshaAssert(currentTest(), false, businessTestFile);
+		}
 	}
 
 	@Test
 	public void testViewEmployeeById() throws IOException {
 		Employee emp = employeeService.viewEmployeeById(101);
-		yakshaAssert(currentTest(), emp.getName().equalsIgnoreCase("Shital") ? true : false, businessTestFile);
+		try{
+			yakshaAssert(currentTest(), emp.getName().equalsIgnoreCase("Shital") ? true : false, businessTestFile);
+		}catch(Exception ex){
+			yakshaAssert(currentTest(), false, businessTestFile);
+		}
 	}
 
 }
