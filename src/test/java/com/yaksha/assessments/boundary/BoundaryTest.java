@@ -34,8 +34,12 @@ public class BoundaryTest {
 
 	@Test
 	public void testViewAllEmployees() throws Exception {
-		int size = list.size();
-		yakshaAssert(currentTest(), size == 10, boundaryTestFile);
+		try{
+			int size = list.size();
+			yakshaAssert(currentTest(), size == 10, boundaryTestFile);
+		}catch(Exception ex){
+			yakshaAssert(currentTest(), false, boundaryTestFile);
+		}
 	}
 	
 	
